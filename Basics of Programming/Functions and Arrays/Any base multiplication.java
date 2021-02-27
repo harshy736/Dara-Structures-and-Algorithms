@@ -20,10 +20,10 @@ public static void main(String[] args) {
  }
  
  public static int getValueIndecimal(int n, int b){
-      int sum=0,p=0;
+      int sum=0,p=1;
       while(n>0){
           sum+=(n%10) * p;
-          p *= 10;
+          p *= b;
           n /= 10;
       }
       return sum;
