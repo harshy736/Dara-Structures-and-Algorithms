@@ -80,31 +80,19 @@ public class Main {
   }
 
   public static Node add(Node node, int data) {
-    if(node.data == data){
+    if(node == null){
+        node = new Node(data, null, null);
         return node;
     }
-    else if(node.data>data){
-        if(node.left==null){
-            Node t = new Node(data,null,null);
-            node.left = t;
-            return node;
-        } else{
-            Node t = add(node.left,data);
-            node.left = t;
-            return node;
-        }
-    } else{
-        if(node.right==null){
-            Node t = new Node(data,null,null);
-            node.right = t;
-            return node;
-        } else{
-            Node t = add(node.right,data);
-            node.right = t;
-            return node;
-        }
+    
+    
+    if(node.data > data){
+        node.left = add(node.left, data);
+    }else if(node.data < data){
+        node.right = add(node.right, data);
     }
     
+    return node;
   }
 
   public static void main(String[] args) throws Exception {
