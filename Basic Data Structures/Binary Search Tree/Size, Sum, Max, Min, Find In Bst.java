@@ -34,29 +34,29 @@ public class Main {
         int idx = 0;
         while (st.size() > 0) {
             Pair top = st.peek();
-            if (top.state == 1) {
+            if (top.state == 1){
                 idx++;
-                if (arr[idx] != null) {
+                if (arr[idx] != null){
                     top.node.left = new Node(arr[idx], null, null);
                     Pair lp = new Pair(top.node.left, 1);
                     st.push(lp);
-                } else {
+                }else{
                     top.node.left = null;
                 }
 
                 top.state++;
-            } else if (top.state == 2) {
+            }else if (top.state == 2){
                 idx++;
-                if (arr[idx] != null) {
+                if (arr[idx] != null){
                     top.node.right = new Node(arr[idx], null, null);
                     Pair rp = new Pair(top.node.right, 1);
                     st.push(rp);
-                } else {
+                }else{
                     top.node.right = null;
                 }
 
                 top.state++;
-            } else {
+            }else{
                 st.pop();
             }
         }
